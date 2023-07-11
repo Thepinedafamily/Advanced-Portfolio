@@ -2,6 +2,19 @@
 //service_cer4w4h
 //HP7q5PkjqI0LlKzB6
 
+let isModelOpen = false
+let contrastToggle = false
+function toggleContrast(){
+    contrastToggle = !contastToggle
+    if(contrastToggle){
+        document.body.classList += "dark-theme"
+    }
+    else{
+        document.body.classList.remove("dark-theme")
+    }
+  
+}
+
 function contact(event){
     event.preventDefault();
     const loading = document.querySelector('.model__overlay--loading')
@@ -27,14 +40,18 @@ function contact(event){
  })
 
 }
-let isModelOpen = false
-function toggleModel(){
-   isModelOpen = !isModelOpen
-    if (isModelOpen){
-        isModelOpen = false
-        return document.body.classList.remove('model--open')
-    }
-    isModelOpen = true
-document.body.classList += 'model--open'
 
+
+function toggleModel() {
+    if(isModelOpen) {
+        isModelOpen = false
+        document.body.classList.add('model--open')
+    } 
+    else{
+        isModelOpen = true
+        document.body.classList.remove('model--close')
+    }
+}
+function modelClose(){
+    document.body.classList.remove('model--open')
 }
